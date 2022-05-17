@@ -1,5 +1,6 @@
 package com.mlb.mlbteamsservice.controllers;
 
+import com.mlb.mlbteamsservice.models.MlbTeam;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -9,6 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/teams")
@@ -21,6 +25,7 @@ public class MlbTeamsResource {
 
     @RequestMapping("/")
     public String getAllTeams(){
+        List<MlbTeam> allTeams = new ArrayList<>();
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("api-key", apiKey);
         HttpEntity requestEntity = new HttpEntity<>(httpHeaders);
