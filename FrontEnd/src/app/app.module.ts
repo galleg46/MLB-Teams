@@ -15,7 +15,7 @@ import {MlbTeamService} from "./service/mlb-team-service/mlb-team.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [MlbTeamService],
   bootstrap: [AppComponent]

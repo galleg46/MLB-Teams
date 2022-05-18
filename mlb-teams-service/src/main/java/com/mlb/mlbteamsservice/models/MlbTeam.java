@@ -7,7 +7,7 @@ public class MlbTeam {
     private String location;
     private String abbreviation;
     private String logo;
-    private String league;
+    private String leage;
     private String division;
 
     public MlbTeam(int id, String nickname, String name, String location,
@@ -18,7 +18,7 @@ public class MlbTeam {
         this.location = location;
         this.abbreviation = abbreviation;
         this.logo = logo;
-        this.league = league;
+        this.leage = league;
         this.division = division;
     }
 
@@ -70,12 +70,12 @@ public class MlbTeam {
         this.logo = logo;
     }
 
-    public String getLeague() {
-        return league;
+    public String getLeage() {
+        return leage;
     }
 
-    public void setLeague(String league) {
-        this.league = league;
+    public void setLeage(String leage) {
+        this.leage = leage;
     }
 
     public String getDivision() {
