@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MlbTeamService } from "../../service/mlb-team-service/mlb-team.service";
 import { MlbTeam } from "../../models/mlb-team";
-import {HttpClient} from "@angular/common/http";
+import {MlbTeamPlayer} from "../../models/mlb-team-player";
 
 @Component({
   selector: 'app-landing-page',
@@ -11,16 +11,35 @@ import {HttpClient} from "@angular/common/http";
 export class LandingPageComponent implements OnInit {
 
   teams: MlbTeam[];
+  players: MlbTeamPlayer[];
 
-  constructor(private mlbTeamService: MlbTeamService) {
+  constructor(private mlbTeamService: MlbTeamService,) {
     this.teams = [];
+    this.players = [];
   }
 
   ngOnInit(): void {
     this.mlbTeamService.getAllTeams().subscribe(data => {
       this.teams = data;
     });
-    console.log(this.teams);
+
+  }
+
+  getTeamPlayers(teamId: number): void{
+    this.mlbTeamService.getTeamPlayers(teamId).subscribe(data => {
+      this.players = data;
+    })
+
+    var x = document.getElementById("players");
+    // @ts-ignore
+    if(x.style.display == "none") {
+      // @ts-ignore
+      x.style.display = "block";
+    }
+    else {
+      // @ts-ignore
+      x.style.display = "none";
+    }
   }
 
 }

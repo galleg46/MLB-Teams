@@ -1,6 +1,5 @@
 package com.mlb.mlbteamsservice.controllers;
 
-import com.mlb.mlbteamsservice.models.MlbTeam;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -8,9 +7,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/teams")
@@ -33,8 +29,9 @@ public class MlbTeamsResource {
         return response.getBody();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/{teamId}/players")
-    public String getPlayers(@PathVariable("teamId") int teamId){
+    public String getTeamPlayers(@PathVariable("teamId") int teamId){
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("api-key", apiKey);
         HttpEntity requestEntity = new HttpEntity<>(httpHeaders);

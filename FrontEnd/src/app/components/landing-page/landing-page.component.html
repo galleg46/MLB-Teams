@@ -16,6 +16,10 @@
     <td><img src="{{ team.logo }}" alt="{{team.name}} logo"></td>
     <td>{{ team.leage }}</td>
     <td>{{ team.division }}</td>
+    <td><button (click)="getTeamPlayers(team.id)">Show Players</button></td>
+  </tr>
+  <tr id="players" *ngFor="let player of players">
+    <td>{{ player.name }}</td>
   </tr>
 
 </table>
