@@ -42,4 +42,7 @@ export class LandingPageComponent implements OnInit {
     }
   }
 
+  getPlayerInfo(playerId: number): void{
+  }
+
 }
