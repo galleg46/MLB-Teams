@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MlbTeamService } from "../../service/mlb-team-service/mlb-team.service";
 import { MlbTeam } from "../../models/mlb-team";
 import {MlbTeamPlayer} from "../../models/mlb-team-player";
+import {MlbPlayerInfo} from "../../models/mlb-player-info";
 
 @Component({
   selector: 'app-landing-page',
@@ -12,6 +13,7 @@ export class LandingPageComponent implements OnInit {
 
   teams: MlbTeam[];
   players: MlbTeamPlayer[];
+  playerInfo: MlbPlayerInfo | undefined;
 
   constructor(private mlbTeamService: MlbTeamService,) {
     this.teams = [];
@@ -43,6 +45,20 @@ export class LandingPageComponent implements OnInit {
   }
 
   getPlayerInfo(playerId: number): void{
+    this.mlbTeamService.getPlayerInfo(playerId).subscribe(data => {
+      this.playerInfo = data;
+    })
+
+    var x = document.getElementById("playerInfo");
+    // @ts-ignore
+    if(x.style.display == "none") {
+      // @ts-ignore
+      x.style.display = "block";
+    }
+    else {
+      // @ts-ignore
+      x.style.display = "none";
+    }
   }
 
 }
