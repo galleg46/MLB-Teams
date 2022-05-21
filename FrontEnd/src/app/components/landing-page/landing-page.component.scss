@@ -1,0 +1,32 @@
+@import 'src/styles-variables.scss';
+
+.main-div {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-card {
+  max-width: 400px;
+  align-content: center;
+  box-shadow: 2px 2px darkgrey;
+}
+
+.image-style {
+  max-height: 6rem;
+  max-width: 6rem;
+  display: block;
+}
+
+.team-name-style::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  height: 1px;
+  background-color: rgb(210, 210, 210);
+  width: 100%;
+  z-index: -1;
+  left: 0px;
+}
