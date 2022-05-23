@@ -14,7 +14,7 @@ export class MlbTeamService {
     this.url = 'http://localhost:8081';
   }
 
-  public getAllTeams(): Observable<MlbTeam[]>{
+  public getAllTeams(filter = '', sortDirection = 'asc'): Observable<MlbTeam[]>{
     return this.http.get<MlbTeam[]>(this.url +"/teams/");
   }
 

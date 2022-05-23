@@ -1,16 +1,13 @@
+@use '@angular/material' as mat;
+$my-palette: mat.$indigo-palette;
+
 @import 'src/styles-variables.scss';
 
-.main-div {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.team-card {
-  max-width: 400px;
-  align-content: center;
-  box-shadow: 2px 2px darkgrey;
+.text-style {
+  font-size: 24px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  text-align: center;
 }
 
 .image-style {
@@ -19,14 +16,4 @@
   display: block;
 }
 
-.team-name-style::before {
-  content: "";
-  position: absolute;
-  display: block;
-  top: 50%;
-  height: 1px;
-  background-color: rgb(210, 210, 210);
-  width: 100%;
-  z-index: -1;
-  left: 0px;
-}
+

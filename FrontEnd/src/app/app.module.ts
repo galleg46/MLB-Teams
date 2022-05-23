@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
-import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import {MlbTeamService} from "./service/mlb-team-service/mlb-team.service";
-import {MatCardModule} from "@angular/material/card";
+
+import {MatTableModule} from "@angular/material/table";
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {MatListModule} from "@angular/material/list";
-import {TableModule} from "primeng/table";
-import {ButtonModule} from "primeng/button";
-import {RippleModule} from "primeng/ripple";
-import {CardModule} from "primeng/card";
 
 @NgModule({
   declarations: [
@@ -22,16 +22,15 @@ import {CardModule} from "primeng/card";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule,
-    MatCardModule,
-    MatButtonModule,
-    MatListModule,
-    TableModule,
-    ButtonModule,
-    RippleModule,
-    CardModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatSelectModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [MlbTeamService],
   bootstrap: [AppComponent]
