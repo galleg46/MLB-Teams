@@ -1,0 +1,19 @@
+<div class="container col-md-6">
+  <table style="width: 500px">
+    <tr id="players" *ngFor="let player of players">
+      <td>{{ player.name }}</td>
+      <td>
+        <button (click)="getPlayerInfo(player.id)">Show info</button>
+      </td>
+    </tr>
+    <tr id="playerInfo">
+      <td><img src="{{ playerInfo?.picture }}" alt=" {{ playerInfo?.firstName }} {{ playerInfo?.lastName }} photo"></td>
+      <td>{{ playerInfo?.firstName }} {{ playerInfo?.lastName }}</td>
+      <td>Number: {{ playerInfo?.number}}</td>
+      <td>Primary Position: {{ playerInfo?.primaryPosition }}</td>
+      <td>Bat Side: {{ playerInfo?.batSide }}</td>
+      <td>Throw Side: {{ playerInfo?.throwSide }}</td>
+      <td>Born in: {{ playerInfo?.birthCity}}, {{ playerInfo?.birthStateProvince}}, {{ playerInfo?.birthCountry}}</td>
+    </tr>
+  </table>
+</div>

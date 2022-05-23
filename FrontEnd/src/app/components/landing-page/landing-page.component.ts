@@ -35,6 +35,8 @@ export class LandingPageComponent implements OnInit {
   datasource = new MatTableDataSource();
   dataSourceFilters = new MatTableDataSource();
 
+  allDataFetched: boolean = false;
+
   constructor(private mlbTeamService: MlbTeamService, private router: Router) {
   }
 
@@ -65,6 +67,7 @@ export class LandingPageComponent implements OnInit {
   getTeamPlayers(teamId: number): void{
     this.mlbTeamService.getTeamPlayers(teamId).subscribe(data => {
       this.players = data;
+      this.allDataFetched = true;
     })
 
     console.log('row clicked: ', teamId);
