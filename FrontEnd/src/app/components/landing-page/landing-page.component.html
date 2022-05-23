@@ -37,9 +37,12 @@
 </table>-->
 
 <div class="container" style="text-align: center">
-  <mat-form-field>
-    <input matInput placeholder="Search League or Division" #input>
-  </mat-form-field>
+  <div>
+    <mat-form-field appearance="standard" style="width: 300px; font-size: 20px;">
+      <mat-label>Filter</mat-label>
+      <input matInput placeholder="Search by League or Division" #input>
+    </mat-form-field>
+  </div>
 
   <mat-table [dataSource]="teams" class="mat-elevation-z8">
 
@@ -59,10 +62,13 @@
       <mat-header-cell *matHeaderCellDef class="text-style">Division</mat-header-cell>
       <mat-cell *matCellDef="let team" style="width: 250px" class="text-style">{{team.division}}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="details">
+      <mat-header-cell *matHeaderCellDef class="text-style">Details</mat-header-cell>
+      <mat-cell *matCellDef="let team"><button [routerLink]="['/mlbTeams', team.id]" (click)="getTeamPlayers(team.id)">Show Details</button></mat-cell>
+    </ng-container>
 
     <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-    <mat-row *matRowDef="let team; columns: columnsToDisplay"
-              (click)="getTeamPlayers(team.id)"></mat-row>
+    <mat-row *matRowDef="let team; columns: columnsToDisplay"></mat-row>
   </mat-table>
 </div>
 

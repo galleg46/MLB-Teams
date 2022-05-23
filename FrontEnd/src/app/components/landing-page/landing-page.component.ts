@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { MlbTeamService } from "../../service/mlb-team-service/mlb-team.service";
 import { MlbTeam } from "../../models/mlb-team";
 import {MlbTeamPlayer} from "../../models/mlb-team-player";
@@ -6,6 +6,9 @@ import {MlbPlayerInfo} from "../../models/mlb-player-info";
 import {MlbLeague} from "../../models/mlb-league";
 import {MlbDivisions} from "../../models/mlb-divisions";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {MatTableDataSource} from "@angular/material/table";
+import {Router} from "@angular/router";
+import {map} from "rxjs";
 
 
 @Component({
@@ -27,10 +30,12 @@ export class LandingPageComponent implements OnInit {
   playerInfo: MlbPlayerInfo | undefined;
   leagues: MlbLeague[] = [];
   divisions: MlbDivisions[] = [];
-  columnsToDisplay = ['logo','name', 'leage', 'division'];
+  columnsToDisplay = ['logo','name', 'leage', 'division', 'details'];
 
+  datasource = new MatTableDataSource();
+  dataSourceFilters = new MatTableDataSource();
 
-  constructor(private mlbTeamService: MlbTeamService,) {
+  constructor(private mlbTeamService: MlbTeamService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -38,6 +43,8 @@ export class LandingPageComponent implements OnInit {
       this.teams = data;
       console.log(this.teams)
     });
+
+
 
     this.leagues = [
       {league: "American League", value: "American League"},
@@ -80,4 +87,5 @@ export class LandingPageComponent implements OnInit {
       x.style.display = "none";
     }
   }
+
 }

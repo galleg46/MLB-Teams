@@ -8,6 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { TeamPageComponent } from './components/team-page/team-page.component';
 import {MlbTeamService} from "./service/mlb-team-service/mlb-team.service";
 
 import {MatTableModule} from "@angular/material/table";
@@ -15,22 +16,25 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    TeamPageComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
     MatSelectModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    AppRoutingModule
   ],
   providers: [MlbTeamService],
   bootstrap: [AppComponent]
