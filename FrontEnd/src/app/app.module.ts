@@ -19,6 +19,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { PlayerInfoPageComponent } from './components/player-info-page/player-info-page.component';
 import {MatCardModule} from "@angular/material/card";
+import {MatSortModule} from "@angular/material/sort";
 
 
 
@@ -42,7 +43,8 @@ import {MatCardModule} from "@angular/material/card";
     AppRoutingModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatSortModule
   ],
   providers: [MlbTeamService],
   bootstrap: [AppComponent]
