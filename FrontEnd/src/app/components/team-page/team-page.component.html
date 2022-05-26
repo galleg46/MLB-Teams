@@ -1,4 +1,4 @@
-<div class="container col-md-6">
+<!--<div class="container col-md-6">
   <table style="width: 500px">
     <tr id="players" *ngFor="let player of players">
       <td>{{ player.name }}</td>
@@ -16,4 +16,27 @@
       <td>Born in: {{ playerInfo?.birthCity}}, {{ playerInfo?.birthStateProvince}}, {{ playerInfo?.birthCountry}}</td>
     </tr>
   </table>
+</div>-->
+
+<div class="container" style="text-align: center">
+  <mat-table [dataSource]="players"  multiTemplateDataRows class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Player</mat-header-cell>
+      <mat-cell *matCellDef="let player">{{player.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+      <mat-header-cell *matHeaderCellDef>Player Details</mat-header-cell>
+      <mat-cell *matCellDef="let player"><button mat-raised-button  color="primary" [routerLink]="['/player', player.id]">
+        Details</button></mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+    <mat-row *matRowDef="let player; columns: columnsToDisplay"></mat-row>
+  </mat-table>
+</div>
+
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
 </div>

@@ -15,6 +15,10 @@ import {MatTableModule} from "@angular/material/table";
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { PlayerInfoPageComponent } from './components/player-info-page/player-info-page.component';
+import {MatCardModule} from "@angular/material/card";
 
 
 
@@ -22,7 +26,8 @@ import {MatButtonModule} from "@angular/material/button";
   declarations: [
     AppComponent,
     LandingPageComponent,
-    TeamPageComponent
+    TeamPageComponent,
+    PlayerInfoPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,10 @@ import {MatButtonModule} from "@angular/material/button";
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [MlbTeamService],
   bootstrap: [AppComponent]

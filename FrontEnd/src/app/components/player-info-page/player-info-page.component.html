@@ -1,0 +1,16 @@
+<div class="container" *ngIf="delayContent">
+  <mat-card style="width: 350px; background-color: dimgray">
+    <mat-card-header>
+      <mat-card-title>{{playerInfo?.firstName}} {{playerInfo?.lastName}}</mat-card-title>
+    </mat-card-header>
+    <img class="image-style" src="{{playerInfo?.picture}}" alt="{{playerInfo?.firstName}} {{playerInfo?.lastName}} photo"><br>
+    <mat-card-content>
+      <p>Primary Position: {{playerInfo?.primaryPosition}}</p>
+      <p>Born: {{playerInfo?.birthCity}}, {{playerInfo?.birthStateProvince}}, {{playerInfo?.birthCountry}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>

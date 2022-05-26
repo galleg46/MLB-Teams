@@ -1,14 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import { MlbTeamService } from "../../service/mlb-team-service/mlb-team.service";
 import { MlbTeam } from "../../models/mlb-team";
-import {MlbTeamPlayer} from "../../models/mlb-team-player";
-import {MlbPlayerInfo} from "../../models/mlb-player-info";
+
 import {MlbLeague} from "../../models/mlb-league";
 import {MlbDivisions} from "../../models/mlb-divisions";
 import {animate, state, style, transition, trigger} from "@angular/animations";
-import {MatTableDataSource} from "@angular/material/table";
 import {Router} from "@angular/router";
-import {map} from "rxjs";
 
 
 @Component({
@@ -26,16 +23,9 @@ import {map} from "rxjs";
 export class LandingPageComponent implements OnInit {
 
   teams: MlbTeam[] = [];
-  players: MlbTeamPlayer[] = [];
-  playerInfo: MlbPlayerInfo | undefined;
   leagues: MlbLeague[] = [];
   divisions: MlbDivisions[] = [];
   columnsToDisplay = ['logo','name', 'leage', 'division', 'details'];
-
-  datasource = new MatTableDataSource();
-  dataSourceFilters = new MatTableDataSource();
-
-  allDataFetched: boolean = false;
 
   constructor(private mlbTeamService: MlbTeamService, private router: Router) {
   }
@@ -43,7 +33,6 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
     this.mlbTeamService.getAllTeams().subscribe(data => {
       this.teams = data;
-      console.log(this.teams)
     });
 
 
@@ -61,34 +50,5 @@ export class LandingPageComponent implements OnInit {
       {division: "National League Central"},
       {division: "National League East"}
     ];
-
   }
-
-  getTeamPlayers(teamId: number): void{
-    this.mlbTeamService.getTeamPlayers(teamId).subscribe(data => {
-      this.players = data;
-      this.allDataFetched = true;
-    })
-
-    console.log('row clicked: ', teamId);
-    console.log(this.players);
-  }
-
-  getPlayerInfo(playerId: number): void{
-    this.mlbTeamService.getPlayerInfo(playerId).subscribe(data => {
-      this.playerInfo = data;
-    })
-
-    var x = document.getElementById("playerInfo");
-    // @ts-ignore
-    if(x.style.display == "none") {
-      // @ts-ignore
-      x.style.display = "block";
-    }
-    else {
-      // @ts-ignore
-      x.style.display = "none";
-    }
-  }
-
 }

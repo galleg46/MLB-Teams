@@ -1,8 +1,7 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MlbTeamService} from "../../service/mlb-team-service/mlb-team.service";
 import {MlbTeamPlayer} from "../../models/mlb-team-player";
 import {ActivatedRoute} from "@angular/router";
-import {MlbPlayerInfo} from "../../models/mlb-player-info";
 
 @Component({
   selector: 'app-team-page',
@@ -11,8 +10,8 @@ import {MlbPlayerInfo} from "../../models/mlb-player-info";
 })
 export class TeamPageComponent implements OnInit {
   players: MlbTeamPlayer[] = [];
-  playerInfo: MlbPlayerInfo | undefined;
-  columnsToDisplay = ['picture', 'number', 'name', 'primaryPosition', 'batSide', 'throwSide', 'originallyFrom'];
+  isLoading = true;
+  columnsToDisplay = ['name', 'details'];
 
   constructor(private route: ActivatedRoute, private mlbTeamService: MlbTeamService) {
   }
@@ -23,14 +22,8 @@ export class TeamPageComponent implements OnInit {
     this.mlbTeamService.getTeamPlayers(teamId).subscribe(data => {
       console.log(data);
       this.players = data;
+      this.isLoading = false;
     });
-  }
-
-  getPlayerInfo(playerId: number): void {
-    this.mlbTeamService.getPlayerInfo(playerId).subscribe(data => {
-      console.log(data);
-      this.playerInfo = data;
-    })
   }
 }
 
