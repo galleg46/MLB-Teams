@@ -1,16 +1,19 @@
-<div class="container" *ngIf="delayContent">
-  <mat-card style="width: 350px; background-color: dimgray">
-    <mat-card-header>
+<div *ngIf="delayContent" class="card-style">
+  <mat-card style="width: 400px">
+    <mat-card-header class="text-style">
       <mat-card-title>{{playerInfo?.firstName}} {{playerInfo?.lastName}}</mat-card-title>
+      <mat-card-subtitle>Number: {{playerInfo?.number}}</mat-card-subtitle>
     </mat-card-header>
     <img class="image-style" src="{{playerInfo?.picture}}" alt="{{playerInfo?.firstName}} {{playerInfo?.lastName}} photo"><br>
-    <mat-card-content>
-      <p>Primary Position: {{playerInfo?.primaryPosition}}</p>
-      <p>Born: {{playerInfo?.birthCity}}, {{playerInfo?.birthStateProvince}}, {{playerInfo?.birthCountry}}</p>
+    <mat-card-content class="text-style">
+      <p><b>Born:</b> {{playerInfo?.birthCity}}, {{playerInfo?.birthStateProvince}} {{playerInfo?.birthCountry}}</p>
+      <p><b>Primary Position:</b> {{playerInfo?.primaryPosition}}</p>
+      <p><b>Batting Side:</b> {{playerInfo?.batSide}}</p>
+      <p><b>Throwing Side:</b> {{playerInfo?.throwSide}}</p>
     </mat-card-content>
   </mat-card>
 </div>
 
-<div *ngIf="isLoading">
-  <mat-spinner></mat-spinner>
+<div *ngIf="isLoading" class="spinner-style">
+  <mat-spinner color="accent"></mat-spinner>
 </div>

@@ -1,34 +1,14 @@
-<!--<div class="container col-md-6">
-  <table style="width: 500px">
-    <tr id="players" *ngFor="let player of players">
-      <td>{{ player.name }}</td>
-      <td>
-        <button (click)="getPlayerInfo(player.id)">Show info</button>
-      </td>
-    </tr>
-    <tr id="playerInfo">
-      <td><img src="{{ playerInfo?.picture }}" alt=" {{ playerInfo?.firstName }} {{ playerInfo?.lastName }} photo"></td>
-      <td>{{ playerInfo?.firstName }} {{ playerInfo?.lastName }}</td>
-      <td>Number: {{ playerInfo?.number}}</td>
-      <td>Primary Position: {{ playerInfo?.primaryPosition }}</td>
-      <td>Bat Side: {{ playerInfo?.batSide }}</td>
-      <td>Throw Side: {{ playerInfo?.throwSide }}</td>
-      <td>Born in: {{ playerInfo?.birthCity}}, {{ playerInfo?.birthStateProvince}}, {{ playerInfo?.birthCountry}}</td>
-    </tr>
-  </table>
-</div>-->
-
-<div class="container" style="text-align: center">
-  <mat-table [dataSource]="players"  multiTemplateDataRows class="mat-elevation-z8">
+<div class="container content" style="text-align: center">
+  <mat-table [dataSource]="players"  multiTemplateDataRows class="mat-elevation-z8 table-sizing">
 
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef>Player</mat-header-cell>
-      <mat-cell *matCellDef="let player">{{player.name}}</mat-cell>
+      <mat-header-cell class="text-style" *matHeaderCellDef>Player</mat-header-cell>
+      <mat-cell class="text-style" *matCellDef="let player">{{player.name}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="details">
-      <mat-header-cell *matHeaderCellDef>Player Details</mat-header-cell>
-      <mat-cell *matCellDef="let player"><button mat-raised-button  color="primary" [routerLink]="['/player', player.id]">
+      <mat-header-cell class="text-style" *matHeaderCellDef>Player Details</mat-header-cell>
+      <mat-cell *matCellDef="let player"><button mat-raised-button color="primary" class="button-style" [routerLink]="['/player', player.id]">
         Details</button></mat-cell>
     </ng-container>
 
@@ -38,5 +18,5 @@
 </div>
 
 <div *ngIf="isLoading">
-  <mat-spinner></mat-spinner>
+  <mat-spinner color="accent"></mat-spinner>
 </div>

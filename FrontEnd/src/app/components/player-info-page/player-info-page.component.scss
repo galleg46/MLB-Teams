@@ -1,5 +1,23 @@
+.card-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .image-style {
-  max-height: 15rem;
-  max-width: 15rem;
-  display: block;
+  max-height: 20rem;
+  max-width: 20rem;
+  display: flex;
+  padding-left: 75px;
+}
+
+.text-style {
+  font-size: 24px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.spinner-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

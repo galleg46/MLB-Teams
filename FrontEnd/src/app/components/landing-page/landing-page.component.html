@@ -19,11 +19,11 @@
     </ng-container>
     <ng-container matColumnDef="details">
       <mat-header-cell *matHeaderCellDef class="text-style cell-padding">Details</mat-header-cell>
-      <mat-cell class="cell-padding" *matCellDef="let team"><button mat-raised-button color="primary" class="text-style button-style" [routerLink]="['/mlbTeams', team.id]">Show Players</button></mat-cell>
+      <mat-cell  *matCellDef="let team"><button mat-raised-button color="primary" class="text-style button-style" [routerLink]="['/mlbTeams', team.id]">Show Players</button></mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-    <mat-row style="height: 100px" *matRowDef="let team; columns: columnsToDisplay"></mat-row>
+    <mat-row class="row-height" *matRowDef="let team; columns: columnsToDisplay"></mat-row>
   </mat-table>
 </div>
 
